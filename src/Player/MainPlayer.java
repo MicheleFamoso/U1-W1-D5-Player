@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class MainPlayer {
     public static void main(String[] args) {
-
+                //Array
               ElementoMultimediale[] elementi = new ElementoMultimediale[5];
               Scanner scanner = new Scanner(System.in);
+              //Ciclo for per la creazione degli elementi
         for (int i = 0; i < 5; i++) {
             System.out.println("Elementi creati :" + (i));
             System.out.println("Scegli il tipo di elemento da creare");
@@ -15,7 +16,7 @@ public class MainPlayer {
             int tipo = scanner.nextInt();
             System.out.println(" inserisci il titolo");
             String titolo = scanner.next();
-
+            // Switch per gestire i 3 tipi di elementi da creare
             switch (tipo){
                 case 1 :
                     System.out.println("Inserisci una luminosita compresa tra 0 e 10");
@@ -44,13 +45,15 @@ public class MainPlayer {
             }
 
         }
-
+        // ciclo doWhile per la gestione della visualizzazione
         int elementoScelto;
         do{
             System.out.println("Scegli un elemento da 1 a 5, esci dal programma con 0");
             elementoScelto = scanner.nextInt();
+            // If per gestire la scelta tra 1 e 5
             if(elementoScelto >= 1 && elementoScelto <=5){
                 ElementoMultimediale scelto = elementi[elementoScelto - 1];
+                // Un altro if per controllare i tipi a runtime
                 if( scelto instanceof AudioVideo){
                     ((AudioVideo) scelto).play();
                 } else if (scelto instanceof  Img) {
